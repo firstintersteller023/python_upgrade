@@ -1,4 +1,4 @@
-Absolutely, here's the finalized and cleaned-up documentation — plain and simple, formatted for future internal use:
+
 
 ---
 
@@ -143,4 +143,3 @@ env/bin/python3 --version   # Should return Python 3.8.5
 
 ---
 
-Let me know if you'd like this saved as a `.md` or `.txt` file.
