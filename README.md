@@ -102,3 +102,38 @@ export LD_LIBRARY_PATH=/opt/python3.8.5/lib:$LD_LIBRARY_PATH
 or add it to their `~/.bashrc`.
 
 ---
+
+
+#I have also refered this 
+
+```
+ls -l $(which python3)
+sudo mv /usr/bin/python3 /usr/bin/python3.bak
+sudo ln -s /usr/local/bin/python3.8.5 /usr/bin/python3
+
+# -- Additionally Installed
+ModuleNotFoundError: No module named 'psycopg2'
+	$ python3 -m pip install psycopg2-binary
+
+ModuleNotFoundError: No module named 'requests'
+	$ python3 -m pip install requests
+
+ImportError: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'OpenSSL 1.0.2k-fips
+	$ pip install "urllib3<2"
+
+# Re configure python
+wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
+tar xzf Python-3.8.5.tgz
+cd Python-3.8.5
+./configure --prefix=/opt/python3.8.5 --enable-optimizations --enable-shared
+make -j$(nproc)
+make install
+echo "export LD_LIBRARY_PATH=/opt/python3.8.5/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+
+# -- TO FIX virtualenv
+cd /mmapps/scripts/cvm-sfs-job-refresh
+mv env env.bak
+python3 --version           # return Python 3.8.5
+python3 -m venv env
+env/bin/python3 --version   # return Python 3.8.5
+```
